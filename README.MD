@@ -21,4 +21,4 @@ $ cd /vagrant/catalog-appication
 Step 6: Run this application by typing
 $ python application.py
 
-Step 7: Visit http://localhost:5000. in your favourite web browser
+Step 7: Visit http://localhost:8000. in your favourite web browser
