@@ -1,0 +1,16 @@
+{% include "header.html" %}
+    <div class="show-links">
+        <a href="{{ url_for('index') }}"><h3>View All Games</h3></a>
+    </div>
+    <h1 class="heading">Categories</h1>
+    {% for category in categories %}
+    <div class="info-category">
+        <h2>{{category.name}}</h2>
+        <div class="info-btn">
+            <a href="{{ url_for('editCategory', category_id=category.id) }}"><input class="edit-btn" type="submit" value="Edit"></a>
+            <a href="{{ url_for('deleteCategory', category_id=category.id) }}"><input class="delete-btn" type="submit" value="Delete"></a>
+            <input class="more-category-btn" type="submit" value="More">
+        </div>
+    </div>
+    {% endfor %}
+{% include "footer.html" %}

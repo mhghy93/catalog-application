@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    line-height: 1.7em;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.container {
+    margin: auto;
+    width: 100%;
+    overflow: auto;
+}
+
+a {
+    color: #ffffe6;
+    text-decoration: none;
+}
+
+#navbar {
+    background: #00001a;
+    overflow: auto;
+}
+
+#navbar h1 {
+    float: left;
+    padding-top: 20px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    float: right;
+}
+
+#navbar ul li {
+    float: left;
+}
+
+#navbar ul li a {
+    display: block;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.heading {
+    text-align: center;
+    color: #000033;
+    padding: 20px;
+}
+
+.catalog-form {
+    background: #f5f5f0;
+    margin-left: 25%;
+    width: 50%;
+    padding: 50px;
+}
+
+.form-element {
+    float: right;
+}
+
+.form-element-description {
+    float: right;
+    height: 140px;
+}
+
+.form-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #262626;
+}
+
+.info {
+    background: #f5f5f0;
+    margin-left: 25%;
+    margin-top: 45px;
+    width: 50%;
+    padding: 50px;
+}
+
+.info h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.info-category {
+    background: #f5f5f0;
+    margin-left: 25%;
+    margin-top: 45px;
+    width: 50%;
+    height: 150px;
+    padding: 50px;
+}
+
+.btn {
+    background: #00004d;
+    color: #ffffe6;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.signin-btn {
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+    background: #f2f2f2;
+    color: #737373;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    float: right;
+    background: #47d147;
+    color: #ffffff;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.delete-btn {
+    float: right;
+    background: #ff1a1a;
+    color: #ffffff;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.more-btn {
+    background: #33adff;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+}
+
+.show-links {
+    float: left;
+    text-align: center;
+    background: #00004d;
+    width: 200px;
+    margin: 40px;
+    border-radius: 5px;
+}
+
+.show-links a {
+    color: #ffffe6;
+}
+
+.show-links h3 {
+    font-size: 15px;
+    padding: 10px;
+}

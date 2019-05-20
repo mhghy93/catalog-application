@@ -1,0 +1,10 @@
+{% include "header.html" %}
+<div class="show-links">
+        <a href="{{ url_for('showCatalogs') }}"><h3>Back</h3></a>
+    </div>
+    <div class="info">
+        <h2>Title: {{catalogs.name}}</h2>
+        <p>Category: {{catalogs.category}}</p>
+        <p>Description: {{catalogs.description}}</p>
+    </div>
+{% include "footer.html" %}

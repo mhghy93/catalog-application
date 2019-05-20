@@ -1,0 +1,14 @@
+{% include "header.html" %}
+    <div class="show-links">
+        <a href="{{ url_for('index') }}"><h3>Back</h3></a>
+    </div>
+    {% for catalog in catalogs %}
+    <div class="info">
+        <h2>{{catalog.name}}</h2>
+        <p>{{catalog.category}}</p>
+        <a href="{{ url_for('deleteCatalog', catalog_id=catalog.id) }}"><input class="delete-btn" type="submit" value="Delete"></a>
+        <a href="{{ url_for('editCatalog', catalog_id=catalog.id) }}"><input class="edit-btn" type="submit" value="Edit"></a>
+        <a href="{{ url_for('showCatalogDetail', catalog_id=catalog.id) }}"><input class="more-btn" type="submit" value="More"></a>
+    </div>
+    {% endfor %}
+{% include "footer.html" %}

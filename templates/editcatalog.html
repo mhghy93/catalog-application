@@ -1,0 +1,20 @@
+{% include "header.html" %}
+    <h1 class="heading">Edit Catalog</h1>
+    <div class="catalog-form">
+        <form method="POST">
+            <label class="form-label" for="name">Title</label>
+            <input class="form-element" type="text" name="name" value="{{catalog.name}}" required>
+            <br>
+            <br>
+            <label class="form-label" for="category">Category</label>
+            <input class="form-element" type="text" name="category" value="{{catalog.category}}" required>
+            <br>
+            <br>
+            <label class="form-label" for="description">Description:</label>
+            <input class="form-element-description" type="text" name="description" value="{{catalog.description}}" required>
+            <br>
+            <br>
+            <input class="btn" type="submit" value="Update">
+        </form>
+    </div>
+{% include "footer.html" %}

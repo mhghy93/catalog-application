@@ -1,0 +1,9 @@
+{% include "header.html" %}
+    <h1 class="heading">Delete</h1>
+    <div class="catalog-form">
+        <form method="POST">
+            <label class="form-label" for="name">Do You Want to delete {{catalog.name}}</label>
+            <a href="{{ url_for('showCatalogs') }}"><input name="name" class="delete-btn" type="submit" value="Delete"></a>
+        </form>
+    </div>
+{% include "footer.html" %}
