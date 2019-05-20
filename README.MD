@@ -1,13 +1,13 @@
 Instructions to run this project:
 
 Step 1: Install virtualbox, You can download it from virtualbox.org, here.
-, ignore if already installed
+(ignore if already installed)
 
 Step 2: Install vagrant, You can download it from vagrantup.com.
-, ignore if already installed
+(ignore if already installed)
 
 Step 3: Download or Clone fullstack-nanodegree-vm repository.
-You can find the link to the fullstack-nanodegree-vm here.
+You can find the link to the fullstack-nanodegree-vm here.(https://github.com/udacity/fullstack-nanodegree-vm)
 
 Step 4: Clone or download this project
 
