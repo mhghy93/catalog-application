@@ -19,7 +19,10 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "Video Game Catalog"
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///catalogsitem.db', connect_args={'check_same_thread': False})
+engine = create_engine(
+    'sqlite:///catalogsitem.db',
+    connect_args={
+        'check_same_thread': False})
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -30,7 +33,9 @@ session = DBSession()
 @app.route('/login')
 def showLogin():
     state = ''.join(
-        random.choice(string.ascii_uppercase + string.digits) for x in range(32))
+        random.choice(
+            string.ascii_uppercase +
+            string.digits) for x in range(32))
     login_session['state'] = state
     return render_template('login.html', STATE=state)
 
@@ -91,8 +96,8 @@ def gconnect():
     stored_access_token = login_session.get('access_token')
     stored_gplus_id = login_session.get('gplus_id')
     if stored_access_token is not None and gplus_id == stored_gplus_id:
-        response = make_response(json.dumps('Current user is already connected.'),
-                                 200)
+        response = make_response(
+            json.dumps('Current user is already connected.'), 200)
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -149,7 +154,7 @@ def getUserID(email):
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
-    except:
+    except BaseException:
         return None
 
 
@@ -189,11 +194,18 @@ def gdisconnect():
         return response
 
 
-# JSON APIs to view Catalog Information
+# JSON APIs to view all Catalog Information
 @app.route('/catalog/JSON')
 def catalogJSON():
     catalogs = session.query(Catalog).all()
     return jsonify(catalogs=[c.serialize for c in catalogs])
+
+
+# JSON APIs to view a single Catalog Information
+@app.route('/catalog/<int:catalog_id>/JSON')
+def singleCatalogJSON(catalog_id):
+    catalog = session.query(Catalog).filter_by(id=catalog_id).one()
+    return jsonify(catalog=catalog.serialize)
 
 
 # Show homepage
@@ -244,7 +256,7 @@ def editCatalog(catalog_id):
     if 'username' not in login_session:
         return redirect('/login')
     if editedCatalog.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to edit this game. Please create your own game in order to edit.');}</script><body onload='myFunction()'>"
+        return "<script>function myFunction() {alert('You are not authorized to edit this game.');}</script><body onload='myFunction()'>"
     if request.method == 'POST':
         if request.form['name']:
             editedCatalog.name = request.form['name']
@@ -268,7 +280,7 @@ def deleteCatalog(catalog_id):
     if 'username' not in login_session:
         return redirect('/login')
     if catalogToDelete.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized to delete this game. Please create your own game in order to delete.');}</script><body onload='myFunction()'>"
+        return "<script>function myFunction() {alert('You are not authorized to delete this game.');}</script><body onload='myFunction()'>"
     if request.method == 'POST':
         session.delete(catalogToDelete)
         flash('%s Successfully Deleted' % catalogToDelete.name)
